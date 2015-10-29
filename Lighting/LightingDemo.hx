@@ -1,11 +1,12 @@
 package;
 
+import lime.app.Application;
+import lime.math.Vector4;
+import xt3d.gl.view.Xt3dGLViewFactory;
+import xt3d.gl.view.Xt3dLimeGLView;
 import xt3d.extras.CameraController;
-import xt3d.utils.XT;
-import xt3d.events.gestures.TapGestureRecognizer;
 import xt3d.core.Director;
 import xt3d.node.Light;
-import lime.math.Vector4;
 import xt3d.node.MeshNode;
 import xt3d.core.Material;
 import xt3d.textures.Texture2D;
@@ -15,21 +16,38 @@ import xt3d.core.View;
 import xt3d.utils.color.Color;
 
 
-class GesturesDemo extends MainApplication {
+class LightingDemo extends Application {
+
+	private var _director:Director;
+
+	private var _glView:Xt3dLimeGLView;
+
 	public function new () {
 		super();
-	}
 
-	override public function createViews():Void {
-		var view = GesturesDemoView.create();
-		this._director.addView(view);
-	}
+		ApplicationMain.config.windows[0].depthBuffer = true;
+		var backgroundColor = Color.createWithComponents(0.2, 0.2, 0.2);
 
+		// Create opengl view and as it as a child
+		this._glView = Xt3dGLViewFactory.instance().createView();
+		this.addModule(this._glView);
+
+		// Initialise director - one per application delegate
+		this._director = Director.create();
+		this._director.glView = this._glView;
+		this._director.backgroundColor = backgroundColor;
+
+		this._director.onReady(function () {
+			var view = LightingDemoView.create();
+			this._director.addView(view);
+		});
+
+	}
 
 }
 
 
-class GesturesDemoView extends View implements TapGestureDelegate {
+class LightingDemoView extends View {
 
 	// properties
 
@@ -47,8 +65,8 @@ class GesturesDemoView extends View implements TapGestureDelegate {
 
 	private var _sceneObjects:Array<Node3D> = new Array<Node3D>();
 
-	public static function create():GesturesDemoView {
-		var object = new GesturesDemoView();
+	public static function create():LightingDemoView {
+		var object = new LightingDemoView();
 
 		if (object != null && !(object.init())) {
 			object = null;
@@ -71,10 +89,7 @@ class GesturesDemoView extends View implements TapGestureDelegate {
 			// Create lights
 			this.createLights();
 
-			// Recognizers
-			var tapGestureRecognizer = TapGestureRecognizer.create(this, 2);
-			this.scene.addChild(tapGestureRecognizer);
-
+			// camera controller
 			var cameraController = CameraController.create(this._camera, 20.0);
 			cameraController.xOrbitFactor = 1.5;
 			this.scene.addChild(cameraController);
@@ -127,7 +142,7 @@ class GesturesDemoView extends View implements TapGestureDelegate {
 		this.scene.addChild(this._containerNode);
 
 		// Create material
-		var texture:Texture2D = director.textureCache.addTextureFromImageAsset("assets/images/marsmap2k.jpg");
+		var texture:Texture2D = director.textureCache.addTextureFromImageAsset("assets/marsmap2k.jpg");
 		texture.retain();
 		var material:Material = Material.create("generic+texture+phong");
 		material.uniform("texture").texture = texture;
@@ -172,17 +187,6 @@ class GesturesDemoView extends View implements TapGestureDelegate {
 
 		// Set the scene ambient color
 		this._scene.ambientLight = Color.createWithRGBHex(0x444444);
-	}
-
-	public function onTap(tapEvent:TapEvent):Bool {
-		if (tapEvent.tapType == TapType.TapTypeDown) {
-			//XT.Log("TapDown");
-
-		} else if (tapEvent.tapType == TapType.TapTypeUp) {
-			XT.Log("Double-tap");
-		}
-
-		return false;
 	}
 
 }
