@@ -1,7 +1,7 @@
 package;
 
 import lime.app.Application;
-import lime.math.Vector4;
+import xt3d.math.Vector4;
 import xt3d.gl.view.Xt3dGLViewFactory;
 import xt3d.gl.view.Xt3dLimeGLView;
 import xt3d.extras.CameraController;
