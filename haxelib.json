@@ -1,10 +1,10 @@
 {
-  "name": "xTalk3d samples",
+  "name": "xt3d-samples",
   "url": "https://github.com/stuartcaunt/xt3d-samples",
   "license": "MIT",
   "tags": [ "xt3d", "3d", "samples" ],
   "description": "Sample projects for xTalk3d framework",
-  "version": "0.1.1",
+  "version": "0.1.3",
   "releasenote": "See History.md",
   "contributors": [ "stuartcaunt" ],
   "dependencies": {

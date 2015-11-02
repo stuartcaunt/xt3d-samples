@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project>
     <haxedef name="source-map-content" if="html5" />
+	<haxedef name="XT_DEBUG" />
 
 	<meta title="Lighting Demo" version="1.0.0" company="xTalk3d" />
 	<app main="LightingDemo" path="Export" />
