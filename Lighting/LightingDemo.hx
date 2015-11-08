@@ -1,6 +1,7 @@
 package;
 
 import lime.app.Application;
+import xt3d.material.TextureMaterial;
 import xt3d.math.Vector4;
 import xt3d.gl.view.Xt3dGLViewFactory;
 import xt3d.gl.view.Xt3dLimeGLView;
@@ -8,8 +9,6 @@ import xt3d.extras.CameraController;
 import xt3d.core.Director;
 import xt3d.node.Light;
 import xt3d.node.MeshNode;
-import xt3d.material.Material;
-import xt3d.textures.Texture2D;
 import xt3d.primitives.Sphere;
 import xt3d.node.Node3D;
 import xt3d.core.View;
@@ -142,12 +141,8 @@ class LightingDemoView extends View {
 		this.scene.addChild(this._containerNode);
 
 		// Create material
-		var texture:Texture2D = director.textureCache.addTextureFromImageAsset("assets/marsmap2k.jpg");
-		texture.retain();
-		var material:Material = Material.createMaterial("generic+texture+phong");
-		material.uniform("texture").texture = texture;
-		material.uniform("uvScaleOffset").floatArrayValue = texture.uvScaleOffset;
-		material.uniform("defaultShininess").floatValue = 0.7;
+		var material = TextureMaterial.createWithImageAsset("assets/marsmap2k.jpg", null, { lightingEnabled:true });
+		material.shininess = 0.7;
 
 		// create geometriy
 		var sphere = Sphere.create(1.3, 15, 15);
