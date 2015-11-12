@@ -80,7 +80,7 @@ class LightingDemoView extends View {
 
 			var director:Director = Director.current;
 			this.backgroundColor = director.backgroundColor;
-			director.timeFactor = 0.3;
+			director.timeFactor = 0.7;
 
 			// Create scene
 			this.createScene();
@@ -141,7 +141,7 @@ class LightingDemoView extends View {
 		this.scene.addChild(this._containerNode);
 
 		// Create material
-		var material = TextureMaterial.createWithImageAsset("assets/marsmap2k.jpg", null, { lightingEnabled:true });
+		var material = TextureMaterial.createWithImageAsset("assets/marsmap1k.jpg", null, { lightingEnabled:true });
 		material.shininess = 0.7;
 
 		// create geometriy
