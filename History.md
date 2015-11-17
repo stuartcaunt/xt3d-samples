@@ -1,3 +1,9 @@
+0.1.6 / 2015-11-17
+===================
+
+ * Added SimpleCube demo.
+ * Update LightingDemo to use BasicApplication helper class.
+
 0.1.5 / 2015-11-11
 ===================
 

@@ -1,10 +1,8 @@
 package;
 
-import lime.app.Application;
+import xt3d.utils.application.BasicApplication;
 import xt3d.material.TextureMaterial;
 import xt3d.math.Vector4;
-import xt3d.gl.view.Xt3dGLViewFactory;
-import xt3d.gl.view.Xt3dLimeGLView;
 import xt3d.extras.CameraController;
 import xt3d.core.Director;
 import xt3d.node.Light;
@@ -15,36 +13,19 @@ import xt3d.core.View;
 import xt3d.utils.color.Color;
 
 
-class LightingDemo extends Application {
+class LightingDemo extends BasicApplication {
 
-	private var _director:Director;
+	private override function onApplicationReady():Void {
+		// Set the director background color
+		this.director.backgroundColor = Color.createWithComponents(0.2, 0.2, 0.2);
 
-	private var _glView:Xt3dLimeGLView;
+		// Create a view
+		var view = LightingDemoView.create();
 
-	public function new () {
-		super();
-
-		ApplicationMain.config.windows[0].depthBuffer = true;
-		var backgroundColor = Color.createWithComponents(0.2, 0.2, 0.2);
-
-		// Create opengl view and as it as a child
-		this._glView = Xt3dGLViewFactory.instance().createView();
-		this.addModule(this._glView);
-
-		// Initialise director - one per application delegate
-		this._director = Director.create();
-		this._director.glView = this._glView;
-		this._director.backgroundColor = backgroundColor;
-
-		this._director.onReady(function () {
-			var view = LightingDemoView.create();
-			this._director.addView(view);
-		});
-
+		// Add the view to the director
+		this.director.addView(view);
 	}
-
 }
-
 
 class LightingDemoView extends View {
 
@@ -101,11 +82,6 @@ class LightingDemoView extends View {
 	}
 
 
-	public function new() {
-		super();
-	}
-
-
 	/* ----------- Properties ----------- */
 
 	/* --------- Implementation --------- */
@@ -132,10 +108,6 @@ class LightingDemoView extends View {
 
 	private function createScene():Void {
 		var director:Director = Director.current;
-//
-//		// Create a camera and set it in the view
-//		var cameraDistance:Float = 20.0;
-//		this.camera.position = new Vector4(0, 0, cameraDistance);
 
 		this._containerNode = Node3D.create();
 		this.scene.addChild(this._containerNode);
