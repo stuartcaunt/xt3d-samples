@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+    <haxedef name="source-map-content" if="html5" />
+	<haxedef name="XT_DEBUG" />
+
+	<meta title="Simple Cube" version="1.0.0" company="xTalk3d" />
+	<app main="SimpleCube" path="Export" />
+
+	<window fps="60" />
+
+	<source path="." />
+
+	<haxelib name="xt3d" />
+
+	<assets path="Assets" rename="assets" exclude="openfl.svg" />
+	<icon path="Assets/openfl.svg" />
+
+
+</project>
