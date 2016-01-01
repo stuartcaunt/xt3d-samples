@@ -8,7 +8,7 @@ import xt3d.extras.CameraController;
 import xt3d.core.Director;
 import xt3d.node.Light;
 import xt3d.node.MeshNode;
-import xt3d.core.View;
+import xt3d.view.View;
 import xt3d.utils.color.Color;
 
 class SimpleCube extends BasicApplication {
