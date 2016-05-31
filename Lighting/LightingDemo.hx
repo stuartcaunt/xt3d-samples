@@ -7,7 +7,7 @@ import xt3d.extras.CameraController;
 import xt3d.core.Director;
 import xt3d.node.Light;
 import xt3d.node.MeshNode;
-import xt3d.primitives.Sphere;
+import xt3d.geometry.primitives.Sphere;
 import xt3d.node.Node3D;
 import xt3d.view.View;
 import xt3d.utils.color.Color;

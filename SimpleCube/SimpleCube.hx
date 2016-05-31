@@ -1,7 +1,7 @@
 package;
 
 import xt3d.utils.application.BasicApplication;
-import xt3d.primitives.Cube;
+import xt3d.geometry.primitives.Cube;
 import xt3d.material.TextureMaterial;
 import xt3d.math.Vector4;
 import xt3d.extras.CameraController;
