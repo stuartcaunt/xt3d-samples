@@ -5,7 +5,7 @@ import xt3d.material.TextureMaterial;
 import xt3d.math.Vector4;
 import xt3d.extras.CameraController;
 import xt3d.core.Director;
-import xt3d.node.Light;
+import xt3d.lights.Light;
 import xt3d.node.MeshNode;
 import xt3d.geometry.primitives.Sphere;
 import xt3d.node.Node3D;
