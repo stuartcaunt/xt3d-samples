@@ -13,7 +13,14 @@ import xt3d.utils.color.Color;
 
 class SimpleCube extends BasicApplication {
 
-	private override function onApplicationReady():Void {
+	/**
+	 * Called when the assets preload is complete
+	 */
+	override public function onPreloadComplete():Void {
+		this.launch();
+	}
+
+	override private function onApplicationReady():Void {
 		// Set the director background color
 		this.director.backgroundColor = Color.createWithComponents(0.2, 0.2, 0.2);
 

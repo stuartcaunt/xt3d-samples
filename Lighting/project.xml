@@ -6,7 +6,7 @@
 	<meta title="Lighting Demo" version="1.0.0" company="xTalk3d" />
 	<app main="LightingDemo" path="Export" />
 
-	<window fps="60" />
+	<window fps="60" vsync="true" depthBuffer="true" antialiasing="1"/>
 
 	<source path="." />
 

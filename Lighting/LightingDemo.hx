@@ -15,6 +15,13 @@ import xt3d.utils.color.Color;
 
 class LightingDemo extends BasicApplication {
 
+	/**
+	 * Called when the assets preload is complete
+	 */
+	override public function onPreloadComplete():Void {
+		this.launch();
+	}
+
 	private override function onApplicationReady():Void {
 		// Set the director background color
 		this.director.backgroundColor = Color.createWithComponents(0.2, 0.2, 0.2);

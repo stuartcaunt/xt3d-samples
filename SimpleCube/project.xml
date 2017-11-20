@@ -6,13 +6,13 @@
 	<meta title="Simple Cube" version="1.0.0" company="xTalk3d" />
 	<app main="SimpleCube" path="Export" />
 
-	<window fps="60" />
+	<window fps="60" vsync="true" depthBuffer="true" antialiasing="1"/>
 
 	<source path="." />
 
 	<haxelib name="xt3d" />
 
-	<assets path="Assets" rename="assets" exclude="openfl.svg" />
+	<assets path="Assets" rename="assets" exclude="openfl.svg"/>
 	<icon path="Assets/openfl.svg" />
 
 
